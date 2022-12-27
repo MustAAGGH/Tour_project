@@ -25,7 +25,7 @@ class TransportRequest extends FormRequest
     public function rules()
     {
         return [
-             'transport' => 'required|min:3|max:255'
+             'transport' => 'alpha|min:3|max:10'
         ];
     }
 

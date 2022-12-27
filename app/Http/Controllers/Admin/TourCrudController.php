@@ -19,7 +19,7 @@ class TourCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
-    private function getFieldsData($show = FALSE): array
+    private function getFieldsData($show = FALSE)
     {
         return [
             [
@@ -34,7 +34,7 @@ class TourCrudController extends CrudController
             ],
             [
                 'name' => 'durance',
-                'label' => 'Durance',
+                'label' => 'Duration',
                 'type' => 'text'
             ],
             [    // SelectMultiple = n-n relationship (with pivot table)
@@ -56,6 +56,13 @@ class TourCrudController extends CrudController
                 'model'     => "App\Models\Organizer", // foreign key model
                 'attribute' => 'name', // foreign key attribute that is shown to user
                 'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+            ],
+            [
+                'label' => "Tour Image",
+                'name' => "image",
+                'type' => ($show ? 'view' : 'upload'),
+                'view' => 'partials/image',
+                'upload' => true,
             ]
         ];
     }
@@ -82,7 +89,8 @@ class TourCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        $this->crud->addColumns($this->getFieldsData(true));
+        $this->crud->set('show.setFromDb', false);
+        $this->crud->addColumns($this->getFieldsData(TRUE));
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -120,6 +128,7 @@ class TourCrudController extends CrudController
     {
         $this->setupCreateOperation();
     }
+
     protected function setupShowOperation()
     {
         // by default the Show operation will try to show all columns in the db table,

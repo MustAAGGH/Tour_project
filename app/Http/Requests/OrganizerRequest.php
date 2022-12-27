@@ -25,9 +25,9 @@ class OrganizerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:3|max:255',
-            'age' => 'required|integer|min:18|max:75',
-            'experience' => 'required'
+            'name' => 'required|min:3|max:20',
+            'age' => 'integer|min:18|max:75',
+            'experience' => 'starts_with:No,01,03,02,04,08,05,10,15,20|ends_with:year,years,experience'
         ];
     }
 
