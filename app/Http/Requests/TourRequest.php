@@ -28,7 +28,7 @@ class TourRequest extends FormRequest
         return [
              'name' => 'required|min:3|max:25',
              'tour_date'=>'required',
-             'durance'=>'starts_with:01,03,05,07,10,15,20|ends_with:day,days|max:7',
+             'durance'=>'starts_with:01,02,03,04,05,06,07,08,09,10,15,20|ends_with:day,days|max:7',
              'transports'=>'required',
              'organizers'=>'required',
              'image'=>'image|nullable'
@@ -58,4 +58,8 @@ class TourRequest extends FormRequest
             //
         ];
     }
+
+
+
+
 }

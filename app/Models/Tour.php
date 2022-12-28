@@ -32,6 +32,13 @@ class Tour extends Model
     */
     public static function boot()
     {
+        static::updating(function($obj) {
+        if (isset($obj->image))
+        {
+            $savedElement = static::query()->where('id','=', $obj->id)->first();
+            Storage::delete(Str::replaceFirst('storage/', 'public/', $savedElement->image));
+        }
+    });
         parent::boot();
         static::deleting(function($obj) {
             if (isset($obj->image))
@@ -39,13 +46,7 @@ class Tour extends Model
                 Storage::delete(Str::replaceFirst('storage/', 'public/', $obj->image));
             }
         });
-        static::updating(function($obj) {
-            if (isset($obj->image))
-            {
-                $savedElement = static::query()->where('id','=', $obj->id)->first();
-                Storage::delete(Str::replaceFirst('storage/', 'public/', $savedElement->image));
-            }
-    });
+
 
 
     }
@@ -70,6 +71,8 @@ class Tour extends Model
         //filename is generated -  md5($file->getClientOriginalName().random_int(1, 9999).time()).'.'.$file->getClientOriginalExtension()
         $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path, $fileName = null);
         $this->attributes[$attribute_name] = 'storage/' . $this->attributes[$attribute_name];
+
+
 
     }
     /*

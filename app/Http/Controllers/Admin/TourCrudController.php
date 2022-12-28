@@ -29,8 +29,11 @@ class TourCrudController extends CrudController
             ],
             [
                 'name' => 'tour_date',
-                'label' => 'Tour date',
-                'type' => 'date'
+                'label' => 'Tour date and time',
+                'type' => 'datetime',
+                'searchLogic' => function ($query, $column, $searchTerm) {
+                  $query->orWhere('tour_date', 'like', '%'.$searchTerm.'%');
+    }
             ],
             [
                 'name' => 'durance',
@@ -46,6 +49,11 @@ class TourCrudController extends CrudController
                 'model'     => "App\Models\Transport", // foreign key model
                 'attribute' => 'transport', // foreign key attribute that is shown to user
                 'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+                'searchLogic' => function ($query, $column, $searchTerm) {
+                    $query->orWhereHas('transports', function ($q) use ($column, $searchTerm) {
+                        $q->where('transport', 'like', '%'.$searchTerm.'%');
+                    });
+                }
             ],
             [    // SelectMultiple = n-n relationship (with pivot table)
                 'label'     => "Organizers",
@@ -56,6 +64,11 @@ class TourCrudController extends CrudController
                 'model'     => "App\Models\Organizer", // foreign key model
                 'attribute' => 'name', // foreign key attribute that is shown to user
                 'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+                'searchLogic' => function ($query, $column, $searchTerm) {
+                    $query->orWhereHas('organizers', function ($q) use ($column, $searchTerm) {
+                        $q->where('name', 'like', '%'.$searchTerm.'%');
+                    });
+                }
             ],
             [
                 'label' => "Tour Image",
@@ -78,7 +91,6 @@ class TourCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/tour');
         CRUD::setEntityNameStrings('tour', 'tours');
         $this->crud->addFields($this->getFieldsData());
-
     }
 
     /**
