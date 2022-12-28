@@ -30,15 +30,8 @@ class Tour extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public static function boot()
-    {
-        static::updating(function($obj) {
-        if (isset($obj->image))
-        {
-            $savedElement = static::query()->where('id','=', $obj->id)->first();
-            Storage::delete(Str::replaceFirst('storage/', 'public/', $savedElement->image));
-        }
-    });
+    public static function boot(){
+
         parent::boot();
         static::deleting(function($obj) {
             if (isset($obj->image))
@@ -46,8 +39,6 @@ class Tour extends Model
                 Storage::delete(Str::replaceFirst('storage/', 'public/', $obj->image));
             }
         });
-
-
 
     }
 
@@ -65,6 +56,7 @@ class Tour extends Model
 
             // set null in the database column
             $this->attributes[$attribute_name] = null;
+            return;
         }
 
         $disk = "public";
