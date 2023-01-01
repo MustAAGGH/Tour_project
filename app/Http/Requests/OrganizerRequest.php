@@ -27,7 +27,7 @@ class OrganizerRequest extends FormRequest
         return [
             'name' => 'required|min:3|max:20',
             'age' => 'integer|min:18|max:75',
-            'experience' => 'starts_with:No,01,03,02,04,08,05,10,15,20|ends_with:year,years,experience'
+            'experience' => 'integer|min:1|max:30'
         ];
     }
 

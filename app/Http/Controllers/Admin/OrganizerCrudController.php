@@ -41,7 +41,7 @@ class OrganizerCrudController extends CrudController
     {
         CRUD::column('name');
         CRUD::column('age');
-        CRUD::column('experience');
+        CRUD::column('experience')->label('Experience years');
         //CRUD::column('created_at');
         // CRUD::column('updated_at');
 
@@ -64,7 +64,7 @@ class OrganizerCrudController extends CrudController
 
         CRUD::field('name');
         CRUD::field('age');
-        CRUD::field('experience');
+        CRUD::field('experience')->label('Experience years');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
