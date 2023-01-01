@@ -3,7 +3,10 @@
 namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Database\Factories\OrganizerFactory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Organizer extends Model
 {
@@ -29,6 +32,16 @@ class Organizer extends Model
     |--------------------------------------------------------------------------
     */
 
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return Factory
+     */
+    public static function Factory(): Factory
+    {
+        return OrganizerFactory::new();
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
