@@ -63,6 +63,26 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style>
+           #tour_table td, #tour_table th {
+            font-size:24px ;
+            text-align: center;
+            vertical-align: center;
+            margin: auto;
+            padding: 20px;
+
+        }
+        #tour_table tr:nth-child(even){background-color: #f2f2f2;}
+        #tour_table tr:hover {background-color: #ddd; }
+        #tour_table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color:#63464b;
+            color: white;
+            }
+        </style>
+
 </head>
 
 <body>
@@ -78,6 +98,7 @@
     <div class="container">
         <div class="header-left">
             <ul class="pull-left">
+                <li><h1 style="color:mediumslateblue;">TourExpert</h1></li>
                 <li>
                     <a href="#">
                         <i class="fa fa-phone" aria-hidden="true"></i> +992 563 542
@@ -224,7 +245,7 @@
 <!--about-us start -->
 <!--about-us start -->
 <section id="about" class="about-us">
-    @yield('content')
+        @yield('content')
 </section><!--/.about-us--><!--/.about-us-->
 <!--about-us end -->
 
