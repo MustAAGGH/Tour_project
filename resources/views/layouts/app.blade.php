@@ -64,6 +64,7 @@
     <![endif]-->
 
     <style>
+
            #tour_table td, #tour_table th {
             font-size:24px ;
             text-align: center;
@@ -73,7 +74,6 @@
 
         }
         #tour_table tr:nth-child(even){background-color: #f2f2f2;}
-        #tour_table tr:hover {background-color: #ddd; }
         #tour_table th {
             padding-top: 12px;
             padding-bottom: 12px;
@@ -81,6 +81,12 @@
             background-color:#63464b;
             color: white;
             }
+        #login,#login:hover{
+            font-family: Fantasy;
+            font-size:30px;
+            margin-left: 350px;
+            pointer-events: auto;
+        }
         </style>
 
 </head>
@@ -91,14 +97,14 @@
 <![endif]-->
 
 
-
-
 <!--header start-->
 <section id="home"  class="header">
     <div class="container">
         <div class="header-left">
             <ul class="pull-left">
-                <li><h1 style="color:mediumslateblue;">TourExpert</h1></li>
+                <li>
+                    <h1 style="color:mediumslateblue;">TourExpert</h1>
+                </li>
                 <li>
                     <a href="#">
                         <i class="fa fa-phone" aria-hidden="true"></i> +992 563 542
@@ -108,6 +114,9 @@
                     <a href="#">
                         <i class="fa fa-envelope" aria-hidden="true"></i>info@mail.com
                     </a>
+                </li>
+                <li>
+                    <a id="login"href="{{ url('/admin') }}" >Log in</a>
                 </li><!--/li-->
             </ul><!--/ul-->
         </div><!--/.header-left -->
@@ -167,14 +176,7 @@
                     </div>
                 </li><!--/li -->
                 <li>
-                    <div class="social-icon">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        </ul><!--/.ul -->
-                    </div><!--/.social-icon -->
+                  <!--/.social-icon -->
                 </li><!--/li -->
             </ul><!--/ul -->
         </div><!--/.header-right -->
@@ -203,47 +205,6 @@
             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
         </ol>
 
-        <!-- Wrapper for slides -->
-        <!-- /.single-slide-item-content-->
-
-                            </div><!-- /.col-->
-                        </div><!-- /.row-->
-                    </div><!-- /.container-->
-                </div><!-- /.single-slide-item-->
-            </div><!-- /.item .active-->
-        </div><!-- /.carousel-inner-->
-
-        <!-- Controls -->
-
-    </div><!-- /.carousel-->
-
-</section><!-- /.header-slider-area-->
-<!-- header-slider-area end -->
-
-<!--we-do start -->
-<!--/.section-header-->
-
-
-                                        </h2>
-                                    </div><!--/.we-do-topics-->
-                                </div><!--/.we-do-info-->
-                                <div class="we-do-comment">
-                                    <p>
-                                    </p>
-                                </div><!--/.we-do-comment-->
-                            </div><!--/.we-do-description-->
-                        </div><!--/.single-we-do-box-->
-                    </div><!--/.col-->
-                </div><!--/.row-->
-            </div><!--/.we-do-carousel-->
-        </div><!--/.we-do-details-->
-    </div><!--/.container-->
-
-</section><!--/.we-do-->
-<!--we-do end-->
-
-<!--about-us start -->
-<!--about-us start -->
 <section id="about" class="about-us">
         @yield('content')
 </section><!--/.about-us--><!--/.about-us-->
@@ -262,20 +223,11 @@
             <div class="col-sm-7">
                 <div class="foot-copyright pull-left">
                     <p>
-                        &copy; All Rights Reserve
-                        <a href="https://www.themesine.com">ThemeSINE</a>
-                    </p>
+                        &copy;TourExpert 2023
                 </div><!--/.foot-copyright-->
             </div><!--/.col-->
             <div class="col-sm-5">
-                <div class="foot-menu pull-right
-						">
-                    <ul>
-                        <li ><a href="#">legal</a></li>
-                        <li ><a href="#">sitemap</a></li>
-                        <li ><a href="#">privacy policy</a></li>
-                    </ul>
-                </div><!-- /.foot-menu-->
+                <!-- /.foot-menu-->
             </div><!--/.col-->
         </div><!--/.row-->
         <div id="scroll-Top">

@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="container">
-        <div id="about" class="about-us">
            <h1>Our latest offers...</h1>
               <br/>
                   <table id="tour_table">
@@ -35,6 +34,5 @@
                                 </tr>
                             @endforeach
                             </table>
-
                         </div><!--/.about-us-txt-->
 @endsection

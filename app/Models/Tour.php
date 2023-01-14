@@ -11,6 +11,8 @@ class Tour extends Model
 {
     use CrudTrait;
 
+
+
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
@@ -25,11 +27,15 @@ class Tour extends Model
     // protected $hidden = [];
     // protected $dates = [];
 
+
+
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+
+
     public static function boot(){
 
         parent::boot();

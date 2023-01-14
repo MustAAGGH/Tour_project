@@ -27,7 +27,7 @@ class TourRequest extends FormRequest
     {
         return [
              'name' => 'required|min:3|max:25',
-             'tour_date'=>'required',
+             'tour_date'=>'date',
              'durance'=>'starts_with:01,02,03,04,05,06,07,08,09,10,15,20|ends_with:day,days|max:7',
              'transports'=>'required',
              'organizers'=>'required',
